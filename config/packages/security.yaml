@@ -7,7 +7,7 @@ security:
         ROLE_ADMIN:   ROLE_ADMIN
         ROLE_CONSEILER:   ROLE_CONSEILLER
         ROLE_CLIENT:   ROLE_CLIENT
-        ROLE_GUEST:   ROLE_GUEST
+
     providers:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:

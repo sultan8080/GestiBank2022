@@ -13,10 +13,10 @@ class MessageType extends AbstractType
     {
         $builder
             ->add('Nom')
-            ->add('Prenom')
+            ->add('Telephone')
             ->add('Email')
             ->add('Contenu')
-            ->add('CreatedAt')
+            // ->add('CreatedAt')
         ;
     }
 
