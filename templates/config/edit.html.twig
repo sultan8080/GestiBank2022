@@ -1,13 +1,98 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
+{% block body %}
+<div class="container-fluid">
+ <div class="row">
+<div class="card col-9">
+{{ form_start(form)}}
 
-{% block title %}Edit Config{% endblock %}
+                <form class="form-horizontal" method="post">
+                  <div class="card-body">
+                    {# <h4 class="card-title">Configuration du site</h4> #}
+                    <div class="form-group row">
+                    <h4 class="card-title">Configuration du site</h4>
+                    {# {{ form_row(form.titre, {'attr':{'class':"col-sm-9 form-group row"}})}} #}
+                      <label
+                        for="fname"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Titre</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="titre"
+                          {# value="{{ config.titre }}" /> #}
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        for="lname"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Logo</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="logo"
+                          value="{{ config.logo }}"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        for="lname"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Adresse</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="adresse"
+                          value="{{ config.adresse }}"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        for="email1"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Téléphone</label
+                      >
+                      <div class="col-sm-9">
+                      {# Test<input type="text" name="numTel" value=""> #}
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="numTel"
+                          value="{{ config.numTel }}"
+                        />
+                      </div>
+                    </div>
+                  <div class="border-top">
+                    <div class="card-body">
+                     {{ include('config/_form.html.twig', {'button_label': 'Enregistrer'}) }} 
+                      {# <button type="button" class="btn btn-primary" type="submit">  
+                        Enregistrer #}
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                {{ form_end(form)}}
+              </div>
+              </div>
+              </div>
+              
+{% endblock %}
+{# {% block title %}Edit Config{% endblock %}
 
 {% block body %}
     <h1>Edit Config</h1>
 
-    {{ include('config/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('config/_form.html.twig', {'button_label': 'Update'}) }} 
 
     <a href="{{ path('app_config_index') }}">back to list</a>
 
-    {{ include('config/_delete_form.html.twig') }}
-{% endblock %}
+    {{ include('config/_delete_form.html.twig') }} 
+{% endblock %}  #}
