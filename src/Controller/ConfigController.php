@@ -57,7 +57,7 @@ class ConfigController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $configRepository->save($config, true);
 
-            return $this->redirectToRoute('app_config_index', [], Response::HTTP_SEE_OTHER);
+            // return $this->redirectToRoute('app_config_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('config/edit.html.twig', [
