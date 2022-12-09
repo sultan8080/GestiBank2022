@@ -203,16 +203,24 @@
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
                   <span class="font-weight-bold mb-2">David Grey. H</span>
-                  <span class="text-secondary text-small">Project Manager</span>
+                  <span class="text-secondary text-small">Conseiller</span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">
-                <span class="menu-title">Validaton de compte</span>
-                <i class="mdi mdi-home menu-icon"></i>
+              <a class="nav-link" data-bs-toggle="collapse" href="#general" aria-expanded="false" aria-controls="general-pages">
+                <span class="menu-title">Gérer les validations</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-medical-bag menu-icon"></i>
               </a>
+              <div class="collapse" id="general">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link"> Validation du compte </a></li>
+                  <li class="nav-item"> <a class="nav-link"> Validation de chéquier </a></li>
+                  <li class="nav-item"> <a class="nav-link"> Valider le découvert </a></li>
+                </ul>
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
@@ -228,10 +236,16 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link">
-                <span class="menu-title">Validation Demande Chéquier</span>
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Gérer les découverts</span>
+                <i class="menu-arrow"></i>
                 <i class="mdi mdi-contacts menu-icon"></i>
               </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link">Modifier le découvert</a></li>
+                </ul>
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link">
@@ -241,7 +255,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link">
-                <span class="menu-title">Charts</span>
+                <span class="menu-title">Visualiser le compte client</span>
                 <i class="mdi mdi-chart-bar menu-icon"></i>
               </a>
             </li>
@@ -291,8 +305,8 @@
           <div class="content-wrapper">
             <div class="page-header">
               <h3 class="page-title">
-                <span class="page-title-icon bg-gradient-primary text-white me-2">
-                  <i class="mdi mdi-home"></i>
+                <!--<span class="page-title-icon bg-gradient-primary text-white me-2" >-->
+                <a href="http://127.0.0.1:8000/accueil"<i class="mdi mdi-home"></i></a>
                 </span> Accueil
               </h3>
               <nav aria-label="breadcrumb">
@@ -308,10 +322,9 @@
                 <div class="card bg-gradient-danger card-img-holder text-white">
                   <div class="card-body">
                     <img src="{{asset('conseiller/images/circle.svg')}}" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Coup d'oeil sur mon compte <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                    <h4 class="font-weight-normal mb-3">Coup d'oeil sur le compte client <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                     </h4>
                     <h2 class="mb-5">$ 15,0000</h2>
-                    <h6 class="card-text">Increased by 60%</h6>
                   </div>
                 </div>
               </div>
@@ -428,39 +441,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Recent Updates</h4>
-                    <div class="d-flex">
-                      <div class="d-flex align-items-center me-4 text-muted font-weight-light">
-                        <i class="mdi mdi-account-outline icon-sm me-2"></i>
-                        <span>jack Menqu</span>
-                      </div>
-                      <div class="d-flex align-items-center text-muted font-weight-light">
-                        <i class="mdi mdi-clock icon-sm me-2"></i>
-                        <span>October 3rd, 2018</span>
-                      </div>
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-6 pe-1">
-                        <img src="{{asset('conseiller/images/dashboard/img_1.jpg')}}" class="mb-2 mw-100 w-100 rounded" alt="image">
-                        <img src="{{asset('conseiller/images/dashboard/img_4.jpg')}}" class="mw-100 w-100 rounded" alt="image">
-                      </div>
-                      <div class="col-6 ps-1">
-                        <img src="{{asset('conseiller/images/dashboard/img_2.jpg')}}" class="mb-2 mw-100 w-100 rounded" alt="image">
-                        <img src="{{asset('conseiller/images/dashboard/img_3.jpg')}}" class="mw-100 w-100 rounded" alt="image">
-                      </div>
-                    </div>
-                    <div class="d-flex mt-5 align-items-top">
-                      <img src="{{asset('conseiller/images/faces/face3.jpg')}}" class="img-sm rounded-circle me-3" alt="image">
-                      <div class="mb-0 flex-grow">
-                        <h5 class="me-2 mb-2">School Website - Authentication Module.</h5>
-                        <p class="mb-0 font-weight-light">It is a long established fact that a reader will be distracted by the readable content of a page.</p>
-                      </div>
-                      <div class="ms-auto">
-                        <i class="mdi mdi-heart-outline text-muted"></i>
+            
                       </div>
                     </div>
                   </div>
