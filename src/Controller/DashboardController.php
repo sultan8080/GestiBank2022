@@ -2,17 +2,23 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Message;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DashboardController extends AbstractController
 {
     #[Route('/admin', name: 'app_dashboardAdmin')]
-    public function indexAdmin(): Response
+    public function indexAdmin(ManagerRegistry $doctrine): Response
     {
+        //Liste message
+        $message = $doctrine->getRepository(Message::class)->findAll();
+
         return $this->render('dashboard/Admin/index_admin.html.twig', [
             'controller_name' => 'DashboardController',
+            'ListeMessage' => $message,
         
         ]);
     }

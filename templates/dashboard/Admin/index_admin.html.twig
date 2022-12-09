@@ -85,11 +85,39 @@
               </div>
             </div>
           </div> #}
+          <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title mb-0">Liste message</h5>
+                </div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">id</th>
+                      <th scope="col">Nom</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Telephone</th>
+                      <th scope="col">Contenu</th>
+                      <th scope="col">Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for item in ListeMessage %}
+                    <tr>
+                      <th scope="row">{{item.id}}</th>
+                      <td>{{item.nom}}</td>
+                      <td>{{item.email}}</td>
+                      <td>{{item.telephone}}</td>
+                      <td>{{item.contenu}}</td>
+                      <td>{{item.createdAt |date("m/d/Y")}}</td>
+                    </tr>
+                  {% endfor %}
+                </table>
+              </div>
           <div class="row">
             <div class="col-md-6">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Acticles</h4>
+                  <h4 class="card-title">Demande</h4>
                 </div>
                 <div class="comment-widgets scrollable">
                   <!-- Comment Row -->
