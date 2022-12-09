@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BankService{% endblock %}
+
+{% block body %}
+    <h1>BankService</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ bank_service.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ bank_service.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ bank_service.description }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>{{ bank_service.logo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_bank_service_index') }}">back to list</a>
+
+    <a href="{{ path('app_bank_service_edit', {'id': bank_service.id}) }}">edit</a>
+
+    {{ include('bank_service/_delete_form.html.twig') }}
+{% endblock %}
