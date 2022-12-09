@@ -558,15 +558,21 @@
                 >
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
-                    <a href="authentication-login.html" class="sidebar-link"
+                    <a href="{{path('app_logout')}}" class="sidebar-link"
                       ><i class="mdi mdi-all-inclusive"></i
-                      ><span class="hide-menu"> Login </span></a
+                      ><span class="hide-menu"> Logout </span></a
                     >
                   </li>
                   <li class="sidebar-item">
-                    <a href="authentication-register.html" class="sidebar-link"
+                    <a href="{{path('app_register')}}" class="sidebar-link"
                       ><i class="mdi mdi-all-inclusive"></i
                       ><span class="hide-menu"> Register </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="{{path('app_user_index')}}" class="sidebar-link"
+                      ><i class="mdi mdi-all-inclusive"></i
+                      ><span class="hide-menu"> Liste User </span></a
                     >
                   </li>
                 </ul>
