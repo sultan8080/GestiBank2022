@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New BankService{% endblock %}
+
+{% block body %}
+    <h1>Create new BankService</h1>
+
+    {{ include('bank_service/_form.html.twig') }}
+
+    <a href="{{ path('app_bank_service_index') }}">back to list</a>
+{% endblock %}
