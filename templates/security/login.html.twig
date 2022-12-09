@@ -3,7 +3,7 @@
 
 {% block body %}
 	
-		
+	
 		<!-- contact section start -->
 		<div class="contact_section layout_padding">
 			<div class="container-fluid">
@@ -11,8 +11,8 @@
 				<p class="amet_text">entrer votre email et votre mot de passe
 				</p>
 				<div class="contact_section2">
-					<div class="row">
-						<div class="col-md-6 padding_left_0">
+					<!--<div class="row">-->
+						<div class="col-lg-6 .offset-md-3">
 							<div class="mail_section">
                                 <form method="post">
                                     {% if error %}
@@ -28,17 +28,12 @@
                                     <input type="password" placeholder="mot de passe" name="password" id="inputPassword" class="mail_text_1" autocomplete="current-password" required>                       
                                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                                     <div class="send_bt">
-                                        <button type="submit">se connecter</button>
+                                        <button type="submit" class="btn btn-danger">se connecter</button>
                                     </div>
                                 </form>
 							</div>
 						</div>
-						<div class="col-md-6 padding_0">
-							<div class="map-responsive">
-								<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France" width="600" height="400" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
-							</div>
-						</div>
-					</div>
+					<!--</div>-->
 				</div>
 			</div>
 		</div>
