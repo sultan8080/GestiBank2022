@@ -5,10 +5,12 @@ namespace App\Controller;
 use App\Entity\Demande;
 use App\Form\DemandeType;
 use App\Repository\DemandeRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\Mapping\Id;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 #[Route('/demande')]
 class DemandeController extends AbstractController
@@ -29,6 +31,52 @@ class DemandeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            //upload des fichiers
+            $photoFile = $form->get('photo')->getData();
+            $identiteFile = $form->get('identite')->getData();
+
+            //Si fichier uplaoder
+            if($photoFile && $identiteFile){
+                $originalphotoFilename = pathinfo($photoFile->getClientOriginalName(), PATHINFO_FILENAME);
+
+                // this is needed to safely include the file name as part of the URL 
+                // $safePhotoFilename = transliterator_transliterate('Any Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalphotoFilename);  
+                $newPhotoFilename = $originalphotoFilename.'-'.uniqid().'.'.$photoFile->guessExtension(); 
+                
+                //AND
+                
+                $originalidentiteFilename = pathinfo($identiteFile->getClientOriginalName(), PATHINFO_FILENAME); 
+                
+                // this is needed to safely include the file name as part of the URL
+                //$safeIdentiteFilename = transliterator_transliterate('Any Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalidentiteFilename);  
+                $newIdentiteFilename = $originalidentiteFilename.'-'.uniqid().'.'.$identiteFile->guessExtension(); 
+            
+                    // Move the file to the directory where brochures are stored  
+                    try { 
+                        $photoFile->move(
+                            $this->getParameter('photos_directory'),$newPhotoFilename);
+
+                        $identiteFile->move( 
+                            $this->getParameter('identites_directory'),$newIdentiteFilename);
+                    } catch (FileException $e) { 
+                    // ... handle exception if something happens during file uplo ad
+                        
+                    } 
+                    // updates the 'brochureFilename' property to store the PDF file name 
+                    // instead of its contents 
+                    $demande->setPhoto($newPhotoFilename); 
+                    $demande->setIdentite($newIdentiteFilename); 
+                    $demande->setDatedemande(new \DateTime()); 
+
+                    //Assignation idUser
+                    $demande->setIdUser($this->getUser());
+            } 
+            
+            
+
+            //fin upload des fichiers
+
             $demandeRepository->save($demande, true);
 
             return $this->redirectToRoute('app_demande_index', [], Response::HTTP_SEE_OTHER);

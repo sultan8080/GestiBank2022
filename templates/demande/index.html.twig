@@ -27,8 +27,10 @@
                 <td>{{ demande.nom }}</td>
                 <td>{{ demande.prenom }}</td>
                 <td>{{ demande.email }}</td>
-                <td>{{ demande.photo }}</td>
-                <td>{{ demande.identite }}</td>
+                <td><img src="{{asset('uploads/photos/'~ demande.photo ~'')}}"/></td>
+                <td><a href="{{asset('uploads/identites/'~ demande.identite ~'')}}" target="_blank">Telecharger</td>
+                {# <td>{{ demande.photo }}</td>
+                <td>{{ demande.identite }}</td> #}
                 <td>{{ demande.type }}</td>
                 <td>{{ demande.etat }}</td>
                 <td>{{ demande.datedemande ? demande.datedemande|date('Y-m-d H:i:s') : '' }}</td>
