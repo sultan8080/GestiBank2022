@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Config;
 use App\Form\ConfigType;
 use App\Repository\ConfigRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 #[Route('/config')]
 class ConfigController extends AbstractController
@@ -29,6 +30,21 @@ class ConfigController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $logoFile = $form->get('logo')->getData();
+            if($logoFile){
+                $originalfilename = pathinfo($logoFile->getClientOriginalName(), PATHINFO_FILENAME);
+                try {
+                    //code...
+                    $logoFile->move($this->getParameter('logo_directory'),$originalfilename);
+                } catch (FileException $e) {
+                    //throw $th;
+                }
+
+                
+            }
+            $config->setLogo($originalfilename);
+
             $configRepository->save($config, true);
 
             return $this->redirectToRoute('app_config_index', [], Response::HTTP_SEE_OTHER);
@@ -55,6 +71,7 @@ class ConfigController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $configRepository->save($config, true);
 
             // return $this->redirectToRoute('app_config_index', [], Response::HTTP_SEE_OTHER);

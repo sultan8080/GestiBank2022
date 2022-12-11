@@ -113,8 +113,49 @@
                   {% endfor %}
                 </table>
               </div>
+              
           <div class="row">
             <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title mb-0">Liste demande</h5>
+                </div>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>
+                          <label class="customcheckbox mb-3">
+                            <input type="checkbox" id="mainCheckbox" />
+                            <span class="checkmark"></span>
+                          </label>
+                        </th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Etat</th>
+                        <th scope="col">date demande</th>
+                      </tr>
+                    </thead>
+                    <tbody class="customtable">
+                    {% for item in ListeDemande %}
+                      <tr>
+                        <th>
+                          <label class="customcheckbox">
+                            <input type="checkbox" class="listCheckbox" />
+                            <span class="checkmark"></span>
+                          </label>
+                        </th>
+                      <td>{{ item.nom }}</td>
+                      <td>{{ item.email }}</td>
+                      <td>{{ item.etat }}</td>
+                      <td>{{ item.datedemande|date("m/d/Y") }}</td>
+                      </tr>
+                    {% endfor %}
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Demande</h4>

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Message;
+use App\Entity\Demande;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,10 +16,12 @@ class DashboardController extends AbstractController
     {
         //Liste message
         $message = $doctrine->getRepository(Message::class)->findAll();
+        $demande = $doctrine->getRepository(Demande::class)->findAll();
 
         return $this->render('dashboard/Admin/index_admin.html.twig', [
             'controller_name' => 'DashboardController',
             'ListeMessage' => $message,
+            'ListeDemande' => $demande,
         
         ]);
     }

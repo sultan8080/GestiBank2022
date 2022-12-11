@@ -7,6 +7,7 @@ parameters:
 # Ajouter des dossier de destination des fichier photo et identite
     identites_directory: '%kernel.project_dir%/public/uploads/identites'  
     photos_directory: '%kernel.project_dir%/public/uploads/photos'
+    logo_directory: '%kernel.project_dir%/public/uploads/logo'
 
 services:
     # default configuration for services in *this* file
