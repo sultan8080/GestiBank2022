@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+
+
 #[Route('/bankservice')]
 class BankServiceController extends AbstractController
 {
@@ -21,6 +24,36 @@ class BankServiceController extends AbstractController
         ]);
     }
 
+    #[Route('/55', name: 'app_bank_service_indexpublic', methods: ['GET'])]
+    public function index2(BankServiceRepository $bankServiceRepository): Response
+    {
+        return $this->render('bank_service/indexPublic.html.twig', [
+            'bank_services' => $bankServiceRepository->findAll(),
+        ]);
+    }
+
+
+    // #[Route('/new', name: 'app_bank_service_new', methods: ['GET', 'POST'])]
+    // public function new(Request $request, BankServiceRepository $bankServiceRepository): Response
+    // {
+    //     $bankService = new BankService();
+    //     $form = $this->createForm(BankServiceType::class, $bankService);
+    //     $form->handleRequest($request);
+
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $bankServiceRepository->save($bankService, true);
+
+    //         return $this->redirectToRoute('app_bank_service_index', [], Response::HTTP_SEE_OTHER);
+    //     }
+
+    //     return $this->renderForm('bank_service/new.html.twig', [
+    //         'bank_service' => $bankService,
+    //         'form' => $form,
+    //     ]);
+    // }
+
+
+    
     #[Route('/new', name: 'app_bank_service_new', methods: ['GET', 'POST'])]
     public function new(Request $request, BankServiceRepository $bankServiceRepository): Response
     {
@@ -29,6 +62,34 @@ class BankServiceController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+
+            $logoLink = $form->get('logo')->getData();
+
+            // this condition is needed because the 'brochure' field is not required
+            // so the logo must be processed only when a logo is uploaded
+            if ($logoLink) {
+
+                $originalLogoFilename = pathinfo($logoLink->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalLogoFilename.'-'.uniqid().'.'.$logoLink->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                try {
+                    $logoLink->move(
+                        $this->getParameter('logo_folder'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'brochureFilename' property to store the PDF file name
+                // instead of its contents
+                $bankService->setLogo($newFilename);
+            }
+
+            // ... persist the $product variable or any other work
+
             $bankServiceRepository->save($bankService, true);
 
             return $this->redirectToRoute('app_bank_service_index', [], Response::HTTP_SEE_OTHER);
@@ -39,6 +100,8 @@ class BankServiceController extends AbstractController
             'form' => $form,
         ]);
     }
+
+
 
     #[Route('/{id}', name: 'app_bank_service_show', methods: ['GET'])]
     public function show(BankService $bankService): Response
@@ -70,9 +133,8 @@ class BankServiceController extends AbstractController
     public function delete(Request $request, BankService $bankService, BankServiceRepository $bankServiceRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$bankService->getId(), $request->request->get('_token'))) {
-            $bankServiceRepository->remove($bankService, true);
+            $bankServiceRepository->remove($bankService, true);      
         }
-
         return $this->redirectToRoute('app_bank_service_index', [], Response::HTTP_SEE_OTHER);
     }
 }
