@@ -40,7 +40,7 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/client, roles: ROLE_CLIENT }
-        - { path: ^/conseiller, roles: ROLE_CONSEILER }
+        - { path: ^/conseiller, roles: ROLE_CONSEILLER }
 
 
 
