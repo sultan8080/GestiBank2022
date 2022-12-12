@@ -24,10 +24,10 @@ class BankServiceController extends AbstractController
         ]);
     }
 
-    #[Route('/55', name: 'app_bank_service_indexpublic', methods: ['GET'])]
+    #[Route('/afficheService', name: 'app_bank_service_indexpublic', methods: ['GET'])]
     public function index2(BankServiceRepository $bankServiceRepository): Response
     {
-        return $this->render('bank_service/indexPublic.html.twig', [
+        return $this->render('bank_service/serviceBank.html.twig', [
             'bank_services' => $bankServiceRepository->findAll(),
         ]);
     }

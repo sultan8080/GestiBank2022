@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title %}Nos Offres
+{% endblock %}
+
+{% block body %}
+	
+			<h1 class="text-center">
+				Nos offres de services Pour Vous
+			</h1>
+		
+
+		<div class="container-fluid">
+			<div class="text-end mb-3">
+				<a href="{{ path('app_bank_service_new') }}" class="btn btn-primary">
+					Ajouter un offre de service</a>
+			</div>
+           
+
+		   
+			<table class="table table-light">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Titre</th>
+						<th>Description</th>
+						<th>Logo</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for bank_service in bank_services %}
+						<tr>
+							<td class="">{{ bank_service.id }}</td>
+							<td class="">{{ bank_service.titre }}</td>
+							<td class="col-6">{{ bank_service.description|u.truncate (180, '... ') }}</td>
+							{# <td>{{bank_service.logo}}</td> #}
+
+							<td class=""><img width="50 px" height="auto" height src="{{asset('uploads/logo_bs/'~ bank_service.logo ~'')}}" class="bg-dark" alt=" logo"/></td>
+
+							<
+{% endblock %}
