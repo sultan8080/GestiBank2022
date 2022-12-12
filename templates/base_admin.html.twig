@@ -21,7 +21,7 @@
     <title>{% block title %} Admin {% endblock %}</title>
     <!-- Favicon icon -->
 
-    <link
+   <!-- <link
       rel="icon"
       type="image/png"
       sizes="16x16"
@@ -402,6 +402,7 @@
           <!-- Sidebar navigation-->
           <nav class="sidebar-nav">
             <ul id="sidebarnav" class="pt-4">
+             
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
@@ -409,6 +410,15 @@
                   aria-expanded="false"
                   ><i class="mdi mdi-view-dashboard"></i
                   ><span class="hide-menu">Dashboard Admin</span></a
+                >
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                   href="{{path('app_conseillerListe')}}" 
+                  aria-expanded="false"
+                  ><i class="mdi mdi-view-dashboard"></i
+                  ><span class="hide-menu">Liste des Conseillers</span></a
                 >
               </li>
               <li class="sidebar-item">

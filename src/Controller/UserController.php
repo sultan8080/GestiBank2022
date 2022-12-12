@@ -20,6 +20,16 @@ class UserController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
+    #[Route('/listeConseiller', name: 'app_conseillerListe', methods: ['GET'])]
+    public function indexListeConseiller(UserRepository $userRepository): Response
+    {
+        
+        return $this->render('user/conseiller/indexConseiller.html.twig', [
+            'users' => $userRepository->findAll(),
+            //'users' => $userRepository->findBy(array('roles' => '[\"ROLE_CONSEILLER\"]'),array('roles' =>'ASC')),
+        
+        ]);
+    }
 
     #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
     public function new(Request $request, UserRepository $userRepository): Response
@@ -36,6 +46,25 @@ class UserController extends AbstractController
 
         return $this->renderForm('user/new.html.twig', [
             'user' => $user,
+            'form' => $form,
+        ]);
+    }
+    #[Route('/newConseiller', name: 'app_conseiller_new', methods: ['GET', 'POST'])]
+    public function newConseiller(Request $request, UserRepository $userRepository): Response
+    {
+        $user = new User();
+        $form = $this->createForm(User1Type::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $userRepository->save($user, true);
+
+            return $this->redirectToRoute('app_conseillerListe_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('user/conseiller/new.html.twig', [
+            'user' => $user,
+
             'form' => $form,
         ]);
     }

@@ -50,4 +50,32 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+    #[Route('/registerConseiller', name: 'app_registerConseiller')]
+    public function registerConseiller(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UserAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
+    {
+        $user = new User();
+        $form = $this->createForm(RegistrationFormType::class, $user);
+         $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+             // encode the plain password
+            $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $user,
+                     $form->get('plainPassword')->getData()
+                 )
+            );
+             //$user->setRoles(array('ROLE_CLIENT'));
+             $user->setRoles(array('ROLE_CONSEILLER'));
+         //$user->setRoles(array('ROLE_ADMIN'));
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+             // do anything else you need here, like send an email
+     }
+
+        return $this->render('registration/registerConseiller.html.twig', [
+            'registrationForm' => $form->createView(),
+         ]);
+    }
 }

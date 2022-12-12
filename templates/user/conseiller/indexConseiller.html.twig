@@ -1,0 +1,59 @@
+{% extends 'base_admin.html.twig' %}
+{% block title %}Liste des conseillers
+{% endblock %}
+
+{% block body %}
+	<div class="page-wrapper">
+		<div class="page-breadcrumb">
+			<h1 class="text-center">
+				Liste des conseillers
+			</h1>
+		</div>
+
+		<div class="container-fluid">
+			<div class="text-end mb-3">
+				<a href="{{ path('app_bank_service_new') }}" class="btn btn-primary">
+					Ajouter un Conseiller</a>
+			</div>
+           
+			<table class="table table-light">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nom et prénom</th>
+						<th>Email</th>
+						<th>Téléphone</th>
+						<th>Adresse</th>
+						<th>Role</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for user in users %}
+					{% if user.roles == '["ROLE_CONSEILLER"]' %}
+					
+					 <tr>
+							<td class="">{{ user.id }}</td>
+							<td class="">{{ user.nom }} {{ user.prenom }}</td>
+							<td class="">{{ user.email }}</td>
+							<td class="">{{ user.telephone }}</td>
+							<td class="">{{ user.adresse }}</td>
+							<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+							
+						</tr> 
+
+{% endif %}
+
+							{# <td
+								class="">
+								<a href="{{ path('app_user_show', {'id': bank_service.id}) }}" class="btn btn-secondary">show</a>
+								<a href="{{ path('app_bank_service_edit', {'id': bank_service.id}) }}" class="btn btn-secondary">edit</a>
+								<a href="{{ path('app_bank_service_delete', {'id': bank_service.id} )}}" class="btn btn-danger">delete</a>
+							</td> #}
+						
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}
