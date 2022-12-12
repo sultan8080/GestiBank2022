@@ -44,7 +44,7 @@ class MessageController extends AbstractController
         // $form = $this->createForm(MessageType::class, $message);
 
         return $this->render('message/contact.html.twig', [
-            'message' => "Message envoyer",
+            'message' => "Message envoyé",
         ]);
     }
 }

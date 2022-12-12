@@ -5,6 +5,12 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
 
+# Ajouter des dossier de destination des fichier photo et identite
+    identites_directory: '%kernel.project_dir%/public/uploads/identites'  
+    photos_directory: '%kernel.project_dir%/public/uploads/photos'
+    logo_directory: '%kernel.project_dir%/public/uploads/logo'
+    logo_folder: '%kernel.project_dir%/public/uploads/logo_bs'
+
 services:
     # default configuration for services in *this* file
     _defaults:
