@@ -1,13 +1,23 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Edit BankService{% endblock %}
+{% extends 'base_admin.html.twig' %}
+{% block title %}Bank service
+{% endblock %}
 
 {% block body %}
-    <h1>Edit BankService</h1>
+	<div class="page-wrapper">
+		<div class="page-breadcrumb">
+			<h1 class="text-center">
+				Modifier des offres de services
+			</h1>
+		</div>
 
-    {{ include('bank_service/_form.html.twig', {'button_label': 'Update'}) }}
+		<div class="container-fluid">
 
-    <a href="{{ path('app_bank_service_index') }}">back to list</a>
+			{{ include('bank_service/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('bank_service/_delete_form.html.twig') }}
+			
+			<div class="text-center mt-2">
+				<a href="{{path('app_bank_service_index') }}">Retournez vers les lists</a>
+			</div>
+		</div>
+	</div>
 {% endblock %}
