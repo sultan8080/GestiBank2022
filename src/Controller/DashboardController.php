@@ -22,7 +22,6 @@ class DashboardController extends AbstractController
             'controller_name' => 'DashboardController',
             'ListeMessage' => $message,
             'ListeDemande' => $demande,
-        
         ]);
     }
     #[Route('/client', name: 'app_dashboardClient')]
