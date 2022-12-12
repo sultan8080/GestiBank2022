@@ -22,25 +22,7 @@
     <link rel="shortcut icon" href="{{asset('conseiller/images/favicon.ico')}}" />
   </head>
   <body>
-    <div class="container-scroller">
-      <div class="row p-0 m-0 proBanner" id="proBanner">
-        <div class="col-md-12 p-0 m-0">
-          <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
-            <div class="ps-lg-1">
-              <div class="d-flex align-items-center justify-content-between">
-                <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
-                <a href="https://www.bootstrapdash.com/product/purple-bootstrap-admin-template/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
-              </div>
-            </div>
-            <div class="d-flex align-items-center justify-content-between">
-              <a href="https://www.bootstrapdash.com/product/purple-bootstrap-admin-template/"><i class="mdi mdi-home me-3 text-white"></i></a>
-              <button id="bannerClose" class="btn border-0 p-0">
-                <i class="mdi mdi-close text-white me-0"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+    
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -69,14 +51,14 @@
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">
-                  <p class="mb-1 text-black">David Greymaax</p>
+                  <p class="mb-1 text-black">Mariem G.</p>
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                 <a class="dropdown-item" href="#">
                   <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="http://127.0.0.1:8000/accueil">
                   <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
               </div>
             </li>
@@ -197,12 +179,12 @@
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                  <img src="{{asset('conseiller/images/faces/face1.jpg')}}" alt="profile">
+                  <img src="{{asset('conseiller/images/faces/mario.jpg')}}" alt="profile">
                   <span class="login-status online"></span>
                   <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">David Grey. H</span>
+                  <span class="font-weight-bold mb-2">David Mona</span>
                   <span class="text-secondary text-small">Conseiller</span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -216,7 +198,7 @@
               </a>
               <div class="collapse" id="general">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link"> Validation du compte </a></li>
+                  <li class="nav-item"> <a class="nav-link"> Validation de demande </a></li>
                   <li class="nav-item"> <a class="nav-link"> Validation de chéquier </a></li>
                   <li class="nav-item"> <a class="nav-link"> Valider le découvert </a></li>
                 </ul>
@@ -230,54 +212,33 @@
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link">Buttons</a></li>
-                  <li class="nav-item"> <a class="nav-link">Typography</a></li>
+                  <li class="nav-item"> <a class="nav-link">Liste de client</a></li>
                 </ul>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <a class="nav-link" data-bs-toggle="collapse" href="#basic" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Gérer les découverts</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-contacts menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic">
+              <div class="collapse" id="basic">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link">Modifier le découvert</a></li>
                 </ul>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link">
-                <span class="menu-title">Valider Decouverte</span>
-                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link">
-                <span class="menu-title">Visualiser le compte client</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link">
-                <span class="menu-title">Tables</span>
-                <i class="mdi mdi-table-large menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
-                <span class="menu-title">Sample Pages</span>
+                <span class="menu-title">Authentification</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-medical-bag menu-icon"></i>
               </a>
               <div class="collapse" id="general-pages">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link"> Blank Page </a></li>
-                  <li class="nav-item"> <a class="nav-link"> Login </a></li>
-                  <li class="nav-item"> <a class="nav-link"> Register </a></li>
-                  <li class="nav-item"> <a class="nav-link"> 404 </a></li>
-                  <li class="nav-item"> <a class="nav-link"> 500 </a></li>
+                  <li class="nav-item"> <a class="nav-link">Login</a></li>
+                  <li class="nav-item"> <a class="nav-link"> Modifier son id </a></li>
+                  <li class="nav-item"> <a class="nav-link">Modifier ses coordonnées</a></li>
                 </ul>
               </div>
             </li>
@@ -318,35 +279,20 @@
               </nav>
             </div>
             <div class="row">
-              <div class="col-md-4 stretch-card grid-margin">
+              <div class="col-auto mr-auto">
                 <div class="card bg-gradient-danger card-img-holder text-white">
                   <div class="card-body">
-                    <img src="{{asset('conseiller/images/circle.svg')}}" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Coup d'oeil sur le compte client <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                     </h4>
                     <h2 class="mb-5">$ 15,0000</h2>
                   </div>
                 </div>
               </div>
-              <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-gradient-info card-img-holder text-white">
+              <div class="col-auto">
+                <div class="card bg-gradient-danger card-img-holder text-white">
                   <div class="card-body">
                     <img src="{{asset('conseiller/images/dashboard/circle.svg')}}" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Weekly Orders <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
-                    </h4>
-                    <h2 class="mb-5">45,6334</h2>
-                    <h6 class="card-text">Decreased by 10%</h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-gradient-success card-img-holder text-white">
-                  <div class="card-body">
-                    <img src="{{asset('conseiller/images/dashboard/circle.svg')}}" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Visitors Online <i class="mdi mdi-diamond mdi-24px float-right"></i>
                     </h4>
                     <h2 class="mb-5">95,5741</h2>
-                    <h6 class="card-text">Increased by 5%</h6>
                   </div>
                 </div>
               </div>
@@ -452,15 +398,16 @@
               <div class="col-md-7 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Project Status</h4>
+                    <h4 class="card-title">Liste des clients</h4>
                     <div class="table-responsive">
                       <table class="table">
                         <thead>
                           <tr>
                             <th> # </th>
-                            <th> Name </th>
-                            <th> Due Date </th>
-                            <th> Progress </th>
+                            <th> Nom/Prénom </th>
+                            <th> Id client </th>
+                            <th> Numéro de compte </th>
+                            <th> Situation du compte </th>
                           </tr>
                         </thead>
                         <tbody>
@@ -468,6 +415,7 @@
                             <td> 1 </td>
                             <td> Herman Beck </td>
                             <td> May 15, 2015 </td>
+                            <td> 1523 </td>
                             <td>
                               <div class="progress">
                                 <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -478,6 +426,7 @@
                             <td> 2 </td>
                             <td> Messsy Adam </td>
                             <td> Jul 01, 2015 </td>
+                            <td> 5698 </td>
                             <td>
                               <div class="progress">
                                 <div class="progress-bar bg-gradient-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
@@ -488,6 +437,7 @@
                             <td> 3 </td>
                             <td> John Richards </td>
                             <td> Apr 12, 2015 </td>
+                            <td> 6985 </td>
                             <td>
                               <div class="progress">
                                 <div class="progress-bar bg-gradient-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
@@ -498,6 +448,7 @@
                             <td> 4 </td>
                             <td> Peter Meggik </td>
                             <td> May 15, 2015 </td>
+                            <td> 7598 </td>
                             <td>
                               <div class="progress">
                                 <div class="progress-bar bg-gradient-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -508,6 +459,7 @@
                             <td> 5 </td>
                             <td> Edward </td>
                             <td> May 03, 2015 </td>
+                            <td> 1478 </td>
                             <td>
                               <div class="progress">
                                 <div class="progress-bar bg-gradient-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
@@ -518,6 +470,7 @@
                             <td> 5 </td>
                             <td> Ronald </td>
                             <td> Jun 05, 2015 </td>
+                            <td> 2145 </td>
                             <td>
                               <div class="progress">
                                 <div class="progress-bar bg-gradient-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
@@ -534,69 +487,14 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title text-white">Todo</h4>
-                    <div class="add-items d-flex">
-                      <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?">
-                      <button class="add btn btn-gradient-primary font-weight-bold todo-list-add-btn" id="add-task">Add</button>
-                    </div>
-                    <div class="list-wrapper">
-                      <ul class="d-flex flex-column-reverse todo-list todo-list-custom">
-                        <li>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox"> Meeting with Alisa </label>
-                          </div>
-                          <i class="remove mdi mdi-close-circle-outline"></i>
-                        </li>
-                        <li class="completed">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox" checked> Call John </label>
-                          </div>
-                          <i class="remove mdi mdi-close-circle-outline"></i>
-                        </li>
-                        <li>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox"> Create invoice </label>
-                          </div>
-                          <i class="remove mdi mdi-close-circle-outline"></i>
-                        </li>
-                        <li>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox"> Print Statements </label>
-                          </div>
-                          <i class="remove mdi mdi-close-circle-outline"></i>
-                        </li>
-                        <li class="completed">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox" checked> Prepare for presentation </label>
-                          </div>
-                          <i class="remove mdi mdi-close-circle-outline"></i>
-                        </li>
-                        <li>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox"> Pick up kids from school </label>
-                          </div>
-                          <i class="remove mdi mdi-close-circle-outline"></i>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
+          <!-- partial:partials/_footer.html 
           <footer class="footer">
             <div class="container-fluid d-flex justify-content-between">
               <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © bootstrapdash.com 2021</span>
               <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin template</a> from Bootstrapdash.com</span>
             </div>
-          </footer>
+          </footer> -->
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
