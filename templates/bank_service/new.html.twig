@@ -1,11 +1,31 @@
-{% extends 'base.html.twig' %}
 
-{% block title %}New BankService{% endblock %}
+{% extends 'base_admin.html.twig' %}
+{% block title %}Add new Bank service{% endblock %}
+
+
 
 {% block body %}
-    <h1>Create new BankService</h1>
+
+<div class="page-wrapper">
+    <div class="page-breadcrumb">
+           <h1 class="text-center"> Create new Bank Service </h1>
+    </div>
+
+        <div class="container-fluid">
+
+
+    <h1></h1>
 
     {{ include('bank_service/_form.html.twig') }}
 
-    <a href="{{ path('app_bank_service_index') }}">back to list</a>
+<div class="text-center mt-2"> 
+    <a href="{{path('app_bank_service_index') }}">Retournez vers les lists</a>
+    </div>
+
+ </div>
+</div>
+
+
+
+
 {% endblock %}
