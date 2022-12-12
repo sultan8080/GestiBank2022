@@ -17,6 +17,7 @@ class DashboardController extends AbstractController
         //Liste message
         $message = $doctrine->getRepository(Message::class)->findAll();
         $demande = $doctrine->getRepository(Demande::class)->findAll();
+        
 
         return $this->render('dashboard/Admin/index_admin.html.twig', [
             'controller_name' => 'DashboardController',

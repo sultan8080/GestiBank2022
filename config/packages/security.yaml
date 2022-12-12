@@ -5,7 +5,7 @@ security:
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     role_hierarchy:
         ROLE_ADMIN:   ROLE_ADMIN
-        ROLE_CONSEILER:   ROLE_CONSEILLER
+        ROLE_CONSEILLER:   ROLE_CONSEILLER
         ROLE_CLIENT:   ROLE_CLIENT
 
     providers:
@@ -40,7 +40,7 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/client, roles: ROLE_CLIENT }
-        - { path: ^/conseiller, roles: ROLE_CONSEILER }
+        - { path: ^/conseiller, roles: ROLE_CONSEILLER }
 
 
 
