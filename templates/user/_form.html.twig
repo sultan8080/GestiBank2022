@@ -1,4 +1,8 @@
-<form method="post">
+{# <form method="post">
     Nom:<input type="text" value="{{user.nom}}"/>
     <button type="submit">{{ button_label|default('modifier') }}</button> 
-    </form>
+    </form> #}
+      {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
