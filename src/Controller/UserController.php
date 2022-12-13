@@ -23,16 +23,16 @@ class UserController extends AbstractController
     #[Route('/listeConseiller', name: 'app_conseillerListe', methods: ['GET'])]
     public function indexListeConseiller(UserRepository $userRepository): Response
     {
-        
+
         return $this->render('user/conseiller/indexConseiller.html.twig', [
             'users' => $userRepository->findAll(),
             //'users' => $userRepository->findBy(array('roles' => '[\"ROLE_CONSEILLER\"]'),array('roles' =>'ASC')),
-        
+
         ]);
     }
 
     #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, UserRepository $userRepository): Response
+    public function new (Request $request, UserRepository $userRepository): Response
     {
         $user = new User();
         $form = $this->createForm(User1Type::class, $user);
@@ -59,12 +59,11 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $userRepository->save($user, true);
 
-            return $this->redirectToRoute('app_conseillerListe_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_newConseiller_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('user/conseiller/new.html.twig', [
+        return $this->renderForm('user/conseiller/newConseiller.html.twig', [
             'user' => $user,
-
             'form' => $form,
         ]);
     }
@@ -73,6 +72,13 @@ class UserController extends AbstractController
     public function show(User $user): Response
     {
         return $this->render('user/show.html.twig', [
+            'user' => $user,
+        ]);
+    }
+    #[Route('/conseiller/{id}', name: 'app_Conseiller_show', methods: ['GET'])]
+    public function showConseiller(User $user): Response
+    {
+        return $this->render('user/conseiller/showConseiller.html.twig', [
             'user' => $user,
         ]);
     }
@@ -94,6 +100,24 @@ class UserController extends AbstractController
             'form' => $form,
         ]);
     }
+        #[Route('/editConseiller/{id}', name: 'app_Conseiller_edit', methods: ['GET', 'POST'])]
+    public function editConseiller(Request $request, $id, UserRepository $userRepository): Response
+    {
+        $user = $userRepository->find($id);
+        $form = $this->createForm(User1Type::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $userRepository->save($user, true);
+
+            return $this->redirectToRoute('app_conseillerListe', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('user/conseiller/editConseiller.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
+        ]);
+    }
 
     #[Route('/{id}', name: 'app_user_delete', methods: ['POST'])]
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
@@ -103,5 +127,14 @@ class UserController extends AbstractController
         }
 
         return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
+    }
+    #[Route('/conseiller/{id}', name: 'app_Conseiller_delete', methods: ['POST'])]
+    public function deleteConseiller(Request $request, User $user, UserRepository $userRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            $userRepository->remove($user, true);
+        }
+
+        return $this->redirectToRoute('user/conseiller/Conseiller.html.twig', [], Response::HTTP_SEE_OTHER);
     }
 }

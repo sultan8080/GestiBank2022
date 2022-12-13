@@ -1,0 +1,10 @@
+<form method="post">
+    Nom:<input type="text" value="{{user.nom}}"/>
+    Email<input  value="{{ user.email }}">
+    Email<input  value="{{ user.email }}">
+								<td class="">{{ user.nom }} {{ user.prenom }}</td>
+								<td class="">{{ user.email }}</td>
+								<td class="">{{ user.telephone }}</td>
+								<td class="">{{ user.adresse }}</td>
+    <button type="submit">{{ button_label|default('modifier') }}</button> 
+    </form>

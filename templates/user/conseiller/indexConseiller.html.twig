@@ -15,7 +15,7 @@
 				<a href="{{ path('app_bank_service_new') }}" class="btn btn-primary">
 					Ajouter un Conseiller</a>
 			</div>
-           
+
 			<table class="table table-light">
 				<thead>
 					<tr>
@@ -24,34 +24,34 @@
 						<th>Email</th>
 						<th>Téléphone</th>
 						<th>Adresse</th>
-						<th>Role</th>
+						<!--	<th>Role</th>-->
 						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
 					{% for user in users %}
-					{% if user.roles == '["ROLE_CONSEILLER"]' %}
-					
-					 <tr>
-							<td class="">{{ user.id }}</td>
-							<td class="">{{ user.nom }} {{ user.prenom }}</td>
-							<td class="">{{ user.email }}</td>
-							<td class="">{{ user.telephone }}</td>
-							<td class="">{{ user.adresse }}</td>
-							<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-							
-						</tr> 
+						{% if 'ROLE_CONSEILLER' in user.roles	 %}
 
-{% endif %}
+							<tr>
+								<td class="">{{ user.id }}</td>
+								<td class="">{{ user.nom }} {{ user.prenom }}</td>
+								<td class="">{{ user.email }}</td>
+								<td class="">{{ user.telephone }}</td>
+								<td class="">{{ user.adresse }}</td>
+								<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 
-							{# <td
-								class="">
-								<a href="{{ path('app_user_show', {'id': bank_service.id}) }}" class="btn btn-secondary">show</a>
-								<a href="{{ path('app_bank_service_edit', {'id': bank_service.id}) }}" class="btn btn-secondary">edit</a>
-								<a href="{{ path('app_bank_service_delete', {'id': bank_service.id} )}}" class="btn btn-danger">delete</a>
-							</td> #}
-						
+
+								<td class="">
+									<a href="{{ path('app_Conseiller_show', {'id': user.id}) }}" class="btn btn-secondary">Détails</a>
+									<a href="{{ path('app_Conseiller_edit', {'id': user.id}) }}" class="btn btn-secondary">Modifier</a>
+									<a href="{{ path('app_Conseiller_delete', {'id': user.id} )}}" class="btn btn-danger">Supprimer</a>
+								</td>
+							</tr>
+						{% endif %}
+
+
 					{% endfor %}
+
 				</tbody>
 			</table>
 		</div>
