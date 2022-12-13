@@ -448,9 +448,9 @@ button {
     border-radius: 10px;
     padding: 30px 0px;
 }
-.box_main:hover{
+/* .box_main:hover{
     background-color: #ff5a58;
-}
+} */
 .box_main.active {
     background-color: #ff5a58;
 }
@@ -466,7 +466,11 @@ button {
     font-size: 20px;
     color: #ffffff;
     text-align: center;
+    background-color:  #ff5a58;
     text-transform: uppercase;
+}
+.btn-sec{
+    background-color:  #ff5a58 !important;
 }
 .lorem_text{
     width: 100%;
@@ -488,14 +492,15 @@ button {
     float: left;
     font-size: 16px;
     color: #ffffff;
-    border: 2px solid #ffffff;
+    border: 2px solid #ff5a58;
     text-align: center;
     padding: 10px 0px;
     border-radius: 40px;
 }
 .moremore_bt_1 a:hover {
     color: #ffffff;
-    border: 2px solid #ffffff;
+    border: 2px solid white;
+    background-color:  #ff5a58;
 }
 .project_section{
     width: 100%;
