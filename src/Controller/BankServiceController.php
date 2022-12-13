@@ -24,34 +24,32 @@ class BankServiceController extends AbstractController
         ]);
     }
 
-    #[Route('/55', name: 'app_bank_service_indexpublic', methods: ['GET'])]
+    #[Route('/afficheService', name: 'app_bank_service_indexpublic', methods: ['GET'])]
     public function index2(BankServiceRepository $bankServiceRepository): Response
     {
-        return $this->render('bank_service/indexPublic.html.twig', [
+        return $this->render('bank_service/serviceBank.html.twig', [
             'bank_services' => $bankServiceRepository->findAll(),
         ]);
     }
-
-
-    // #[Route('/new', name: 'app_bank_service_new', methods: ['GET', 'POST'])]
-    // public function new(Request $request, BankServiceRepository $bankServiceRepository): Response
+    
+    
+    
+    // #[Route('/{id}', name: 'app_bank_service_indexpublic_detail', methods: ['GET'])]
+    // public function index5(int $id, BankServiceRepository $bankServiceRepository): Response
     // {
-    //     $bankService = new BankService();
-    //     $form = $this->createForm(BankServiceType::class, $bankService);
-    //     $form->handleRequest($request);
-
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $bankServiceRepository->save($bankService, true);
-
-    //         return $this->redirectToRoute('app_bank_service_index', [], Response::HTTP_SEE_OTHER);
-    //     }
-
-    //     return $this->renderForm('bank_service/new.html.twig', [
-    //         'bank_service' => $bankService,
-    //         'form' => $form,
+    //     return $this->render('bank_service/serviceBankDetail.html.twig', [
+    //         'bank_services' => $bankServiceRepository->find($id),
     //     ]);
     // }
 
+    // #[Route('/afficheService/{id}', name: 'app_bank_service_indexpublic_detail', methods: ['GET'])]
+    // public function index3(BankServiceRepository $bankServiceRepository): Response
+    // {
+    //     return $this->render('bank_service/serviceBankDetail.html.twig', [
+    //         'bank_services' => $bankServiceRepository->findAll(),
+    //     ]);
+    // }
+    
 
     
     #[Route('/new', name: 'app_bank_service_new', methods: ['GET', 'POST'])]
@@ -107,6 +105,15 @@ class BankServiceController extends AbstractController
     public function show(BankService $bankService): Response
     {
         return $this->render('bank_service/show.html.twig', [
+            'bank_service' => $bankService,
+        ]);
+    }
+
+
+    #[Route('/afficheService/{id}', name: 'bank_service_detail', methods: ['GET'])]
+    public function showService(BankService $bankService): Response
+    {
+        return $this->render('bank_service/serviceBankDetail.html.twig', [
             'bank_service' => $bankService,
         ]);
     }
