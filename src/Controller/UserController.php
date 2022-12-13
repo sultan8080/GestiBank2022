@@ -23,10 +23,10 @@ class UserController extends AbstractController
     #[Route('/listeConseiller', name: 'app_conseillerListe', methods: ['GET'])]
     public function indexListeConseiller(UserRepository $userRepository): Response
     {
-        
+
         return $this->render('user/conseiller/indexConseiller.html.twig', [
             'users' => $userRepository->findAll(),
-            //'users' => $userRepository->findBy(array('roles' => '[\"ROLE_CONSEILLER\"]'),array('roles' =>'ASC')),
+            // 'users' => $userRepository->findBy(array('roles' => ["ROLE_CONSEILLER","ROLE_USER"]),array('id' =>'ASC')),
         
         ]);
     }

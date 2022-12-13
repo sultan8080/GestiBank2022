@@ -30,7 +30,7 @@
 				</thead>
 				<tbody>
 					{% for user in users %}
-					{% if user.roles == '["ROLE_CONSEILLER"]' %}
+					{% if user.roles == ["ROLE_CONSEILLER","ROLE_USER"] %}
 					
 					 <tr>
 							<td class="">{{ user.id }}</td>
@@ -42,7 +42,7 @@
 							
 						</tr> 
 
-{% endif %}
+					{% endif %}
 
 							{# <td
 								class="">
