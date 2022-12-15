@@ -13,6 +13,9 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
+
 
 class RegistrationController extends AbstractController
 {
@@ -78,4 +81,19 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
          ]);
     }
+
+    #[Route('/email')]
+    public function sendEmail(MailerInterface $mailer):Response
+    {
+        $email = (new Email())
+            ->from('gk@smart-it-partner.com')
+            ->to('david.mona.mpro@gmail.com')
+            ->subject('Validation Création de compte')
+            ->html('<H2>Félicitation votre demande a été validé et votre compte est desormais actif</H2>');
+
+        $mailer->send($email);
+        return new Response("Email Send");
+
+    }
+
 }

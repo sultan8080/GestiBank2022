@@ -72,6 +72,20 @@ class ConfigController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $logoFile = $form->get('logo')->getData();
+            if($logoFile){
+                $originalfilename = pathinfo($logoFile->getClientOriginalName(), PATHINFO_FILENAME);
+                try {
+                    //code...
+                    $logoFile->move($this->getParameter('logo_directory'),$originalfilename);
+                } catch (FileException $e) {
+                    //throw $th;
+                }
+
+                
+            }
+            $config->setLogo($originalfilename);
+
             $configRepository->save($config, true);
 
             // return $this->redirectToRoute('app_config_index', [], Response::HTTP_SEE_OTHER);

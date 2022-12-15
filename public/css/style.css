@@ -771,11 +771,19 @@ button {
     height: 70px;
     padding-top: 30px;
 }
+/* MOD - DAV - */
 .send_bt {
     width: 170px;
     float: left;
     margin-top: 40px;
     margin-bottom: 40px;
+    font-size: 20px;/* DEBUT - DAV - */
+    color: #ffffff;
+    text-align: center;
+    background-color: #ff5a58!important;
+    padding: 10px 0px;
+    text-transform: uppercase;
+    border-radius: 30px;/* FIN - DAV - */
 }
 .send_bt a {
     width: 100%;
@@ -784,6 +792,19 @@ button {
     color: #ffffff;
     text-align: center;
     background-color: #ff5a58;
+    padding: 10px 0px;
+    text-transform: uppercase;
+    border-radius: 30px;
+}
+
+/* AJOUTER - DAV - */
+.send_bt button {
+    width: 100%;
+    float: left;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #ff5a58!important;
     padding: 10px 0px;
     text-transform: uppercase;
     border-radius: 30px;

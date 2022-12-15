@@ -24,6 +24,47 @@
 		</div>
 	</div>
 	<!--about section end -->
+	{# API gratuit start #}
+	<div id="conversion-section" class="services_section layout_padding"> 
+		<div class="container">
+			<div class="row">
+			<div class="col-md-4">
+					<h1 class="services_taital">Device</h1>
+					<p class="services_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it
+					</p>
+					<div class="moremore_bt">
+						<a href="#">Voir plus
+						</a>
+					</div>
+				</div>
+				<div class="col-md-6">
+					{# <div><img src="images/img-1.png" class="image_1"></div> #}
+					<form method="post" action="{{path('app_cours')}}">
+						{# <label for="">Device à convertir</label> #}
+						<input type="" class="mail_text_1" placeholder="Device à convertir" id="deviceDep" name="deviceDep" disable>
+						{# <label for="">Device souhaité</label> #}
+						{# <select name="deviceArr" id="deviceArr">
+							<option value="EUR">EUR</option>
+							<option value=""></option>
+							<option value=""></option>
+							<option value=""></option>
+						</select> #}
+						<input type="" class="mail_text_1" id="deviceArr" placeholder="Device souhaité" name="deviceArr">
+						{# <label for="">Montant</label> #}                                                                                                           
+						<input type="" class="mail_text_1" id="montant" placeholder="Montant" name="montant">
+						{# <div class="send_bt"> #}
+							<button id="convertir" class="send_bt" value="">Convertir</button>
+						{# </div> #}
+						<input type="" class="mail_text_1" placeholder="Résultat" name="resultat">
+
+					</form>
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	{# API gratuit end #}
 	<!--services section start -->
 	<div class="what_we_do_section layout_padding">
 		<div class="container">
@@ -241,5 +282,17 @@
 			</div>
 		</div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$('#convertir').click(function(){
+			var deviceDep = document.getElementById('deviceDep').value();
+			var deviceArr = document.getElementById('deviceArr').value();
+			var montant = document.getElementById('montant').value();
+
+			alert(deviceDep + " "+deviceArr+" "+montant);
+		})
+	</script>
+
+	
 	<!--client section end -->
 {% endblock %}
